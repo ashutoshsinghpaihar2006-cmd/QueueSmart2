@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8" />
+  <title>QueueSmart | AI-Powered Smart Queue System</title>
+
+  <!-- Mobile Friendly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- TensorFlow.js (AI / ML) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.16.0/dist/tf.min.js"></script>
+
+  <!-- Notifications -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="app-header">
+    <h1>🤖 QueueSmart</h1>
+    <p class="subtitle">
+      AI-Powered Smart Queue & Crowd Awareness System
+    </p>
+  </header>
+
+  <!-- ================= MAIN APP ================= -->
+  <main class="container">
+
+    <!-- ===== LOCATION SELECTION ===== -->
+    <section class="card">
+      <h2>📍 Select Location</h2>
+
+      <select id="location-select">
+        <option value="">-- Choose Facility --</option>
+        <option value="hospital_1">City Hospital</option>
+        <option value="bank_1">Central Bank</option>
+        <option value="office_1">Govt Office</option>
+      </select>
+
+      <button id="enter-location-btn">
+        Enter Queue
+      </button>
+
+      <p class="hint">
+        AI will estimate your wait time once you join.
+      </p>
+    </section>
+
+    <!-- ===== QUEUE STATUS ===== -->
+    <section class="card hidden" id="queue-section">
+      <h2>⏳ Queue Status</h2>
+
+      <div class="status-grid">
+        <div class="status-box">
+          <span class="label">People Ahead</span>
+          <span class="value" id="people-ahead">0</span>
+        </div>
+
+        <div class="status-box">
+          <span class="label">Total Crowd</span>
+          <span class="value" id="crowd-count">0</span>
+        </div>
+
+        <div class="status-box highlight">
+          <span class="label">Estimated Wait</span>
+          <span class="value" id="wait-time">
+            🤖 Calculating...
+          </span>
+        </div>
+      </div>
+
+      <button id="leave-queue-btn" class="danger">
+        Leave Queue
+      </button>
+    </section>
+
+    <!-- ===== AI INSIGHTS ===== -->
+    <section class="card">
+      <h2>🧠 AI Insights</h2>
+
+      <ul class="ai-list">
+        <li>
+          <strong>AI Model:</strong>
+          Supervised ML Regression (TensorFlow.js)
+        </li>
+        <li>
+          <strong>Learning:</strong>
+          Real queue wait-time outcomes
+        </li>
+        <li>
+          <strong>Execution:</strong>
+          On-device (Edge AI)
+        </li>
+        <li>
+          <strong>Privacy:</strong>
+          No video or personal data stored
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== ADMIN / GOD MODE ===== -->
+    <section class="card admin-card">
+      <h2>🛠 Admin / God Mode</h2>
+
+      <p class="hint">
+        For hackathon demo & evaluation
+      </p>
+
+      <div class="admin-actions">
+        <button id="retrain-ai-btn">
+          🔁 Retrain AI Model
+        </button>
+
+        <button id="reset-ai-btn">
+          🗑 Reset AI Model
+        </button>
+
+        <button id="show-stats-btn">
+          📊 Show AI Stats
+        </button>
+      </div>
+
+      <pre id="admin-output" class="admin-output"></pre>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="app-footer">
+    <p>
+      Built for Hackathons • Real AI • Firebase • TensorFlow.js
+    </p>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+
+  <!-- Firebase -->
+  <script type="module" src="firebase.js"></script>
+
+  <!-- AI / ML Logic -->
+  <script type="module" src="ai-waittime.js"></script>
+
+  <!-- Admin Controls -->
+  <script type="module" src="admin-ai.js"></script>
+
+  <!-- Main App Logic -->
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>

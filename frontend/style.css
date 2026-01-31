@@ -1,0 +1,294 @@
+/* =====================================================
+   QueueSmart – Global Styles
+   Hackathon-ready UI
+   ===================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-main: #0f172a;
+  --bg-card: #111827;
+  --bg-soft: #1f2933;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --accent-ai: #00ffd0;
+  --accent-warn: #facc15;
+  --accent-danger: #ef4444;
+  --accent-ok: #22c55e;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.app-header {
+  text-align: center;
+  padding: 1.8rem 1rem 1.2rem;
+  background: rgba(15, 23, 42, 0.9);
+  border-bottom: 1px solid #1e293b;
+}
+
+.app-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent-ai);
+}
+
+.subtitle {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* =====================================================
+   MAIN CONTAINER
+   ===================================================== */
+
+.container {
+  flex: 1;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* =====================================================
+   CARDS
+   ===================================================== */
+
+.card {
+  background: linear-gradient(
+    160deg,
+    rgba(17, 24, 39, 0.95),
+    rgba(15, 23, 42, 0.95)
+  );
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--accent-ai);
+}
+
+/* =====================================================
+   FORM ELEMENTS
+   ===================================================== */
+
+select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  background: var(--bg-soft);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: linear-gradient(135deg, #06b6d4, #22d3ee);
+  color: #022c22;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.25);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* =====================================================
+   DANGER BUTTON
+   ===================================================== */
+
+button.danger {
+  background: linear-gradient(135deg, #dc2626, #f87171);
+  color: #fff;
+  margin-top: 1rem;
+}
+
+button.danger:hover {
+  box-shadow: 0 8px 20px rgba(248, 113, 113, 0.25);
+}
+
+/* =====================================================
+   HINT TEXT
+   ===================================================== */
+
+.hint {
+  margin-top: 0.7rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* =====================================================
+   QUEUE STATUS GRID
+   ===================================================== */
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.status-box {
+  background: var(--bg-soft);
+  border-radius: 10px;
+  padding: 0.8rem;
+  text-align: center;
+  border: 1px solid #374151;
+}
+
+.status-box .label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.status-box .value {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 0.3rem;
+}
+
+/* Highlight AI output */
+.status-box.highlight {
+  border-color: var(--accent-ai);
+  background: radial-gradient(
+    circle at top,
+    rgba(0, 255, 208, 0.08),
+    var(--bg-soft)
+  );
+}
+
+.status-box.highlight .value {
+  color: var(--accent-ai);
+}
+
+/* =====================================================
+   AI INSIGHTS LIST
+   ===================================================== */
+
+.ai-list {
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.ai-list li {
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed #374151;
+}
+
+.ai-list li:last-child {
+  border-bottom: none;
+}
+
+.ai-list strong {
+  color: var(--accent-ai);
+}
+
+/* =====================================================
+   ADMIN / GOD MODE
+   ===================================================== */
+
+.admin-card {
+  border: 1px dashed #475569;
+  background: linear-gradient(
+    160deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(2, 6, 23, 0.95)
+  );
+}
+
+.admin-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.admin-actions button {
+  background: linear-gradient(135deg, #334155, #475569);
+  color: #e5e7eb;
+}
+
+.admin-actions button:hover {
+  box-shadow: 0 6px 16px rgba(148, 163, 184, 0.2);
+}
+
+.admin-output {
+  margin-top: 0.8rem;
+  padding: 0.8rem;
+  background: #020617;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: #a5f3fc;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.app-footer {
+  text-align: center;
+  padding: 0.9rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-top: 1px solid #1e293b;
+}
+
+/* =====================================================
+   UTILITIES
+   ===================================================== */
+
+.hidden {
+  display: none !important;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 600px) {
+  .app-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .status-box .value {
+    font-size: 1.3rem;
+  }
+}
